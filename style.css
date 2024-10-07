@@ -323,19 +323,19 @@ button#next-btn:hover {
 /* Стили для контейнера с логотипами платформ */
 .platforms-logos {
     display: flex;
-    justify-content: center; /* Центрируем изображения */
+    justify-content: center; 
     align-items: center;
-    gap: 20px; /* Расстояние между изображениями */
+    gap: 20px; 
     margin-top: 20px;
 }
 
 .platforms-logos img {
-    width: 100px; /* Одинаковая ширина для всех изображений */
-    height: 100px; /* Одинаковая высота для всех изображений */
-    object-fit: contain; /* Сохранение пропорций изображения внутри контейнера */
-    border-radius: 20px; /* Закругленные углы */
-    background-color: white; /* Фон для логотипов, чтобы был контраст */
-    padding: 10px; /* Добавляем отступ внутри изображений для улучшения визуализации */
+    width: 100px;
+    height: 100px;
+    object-fit: contain; 
+    border-radius: 20px; 
+    background-color: white; 
+    padding: 10px; 
 }
 
 /* ЭТАПЫ РАБОТЫ */
@@ -464,58 +464,172 @@ button#next-btn:hover {
 }
 
 
-/* ПРИМЕР РАБОТ */
+/* ПРИМЕРЫ РАБОТ */
 
-#work-examples{
+#work-examples {
     background-color: rgb(148, 212, 237);
 }
-.work-examples-contaner{
+
+.work-examples-container {
     max-width: 1200px;
     margin: 0 auto;
     background-color: #f0f8ff;
     border-radius: 20px;
 }
-.work-examples-contaner > div{
+
+.work-examples-container > div {
     padding: 50px;
 }
-#work-examples h1{
+
+#work-examples h1 {
     text-align: center;
     font-weight: 900;
     font-size: 28px;
     margin-bottom: 20px;
 }
-#work-examples p{
+
+#work-examples p {
     text-align: center;
     font-size: 16px;
     margin-bottom: 40px;
     line-height: 1.5;
 }
-#work-examples h2{
+
+#work-examples h2 {
     text-align: center;
     font-weight: 900;
     font-size: 24px;
     margin: 40px;
 }
-.statistics-img{
+
+/* Статистика */
+
+.statistics {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.statistics-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.statistics-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.statistics-slide {
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.statistics-img {
+    width: calc(50% - 10px);
     height: 300px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-.statistics div{
+
+.statistics-slide img {
+    margin: 0 5px;
+}
+
+.statistics-prev-btn, .statistics-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 34px;
+    font-weight: bold;
+    color: #000;
+    border-radius: 50%;
+}
+
+.statistics-prev-btn {
+    left: 10px;
+}
+
+.statistics-next-btn {
+    right: 10px;
+}
+
+.statistics-prev-btn:hover, .statistics-next-btn:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.statistics-prev-btn:active, .statistics-next-btn:active {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Инфографика */
+
+.infographic {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.infographic-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.infographic-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.infographic-slide {
+    flex-shrink: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 10px;
 }
-.infographic-img{
+
+.infographic-img {
+    width: calc(33.333% - 10px);
     height: 270px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-.infographic div{
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+
+.infographic-slide img {
+    margin: 0 5px;
 }
+
+.infographic-prev-btn, .infographic-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 34px;
+    font-weight: bold;
+    color: #000;
+    border-radius: 50%;
+}
+
+.infographic-prev-btn {
+    left: 10px;
+}
+
+.infographic-next-btn {
+    right: 10px;
+}
+
+.infographic-prev-btn:hover, .infographic-next-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.infographic-prev-btn:active, .infographic-next-btn:active {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
 
 /* Тарифы */
 
@@ -725,7 +839,6 @@ button#next-btn:hover {
 }
 
 /* Отзывы */
-
 .reviews-group {
     background-color: rgb(148, 212, 237);
     padding: 20px 0;
@@ -741,41 +854,89 @@ button#next-btn:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 0;
+    position: relative;
 }
-.reviews h1{
+
+.reviews h1 {
     text-align: center;
     font-weight: 900;
     font-size: 24px;
     margin-bottom: 40px;
     color: white;
 }
-.reviews-block{
-    display: flex;
+
+.reviews-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.reviews-block {
+    display: none;
     justify-content: center;
     align-items: center;
     width: 900px;
     margin: 0 auto;
 }
-.reviews-logo{
+
+.reviews-block.active {
+    display: flex;
+}
+
+.reviews-logo {
     height: 100px;
     margin: 30px;
     border-radius: 50%;
     border: 2px solid white;
 }
-.reviews-block p{
+
+.reviews-block p {
     line-height: 1.5;
     color: white;
 }
-.reviews-block span{
+
+.reviews-block span {
     line-height: 10px;
     font-weight: 900;
 }
+
 .author {
     margin: 20px 0;
     font-weight: bold;
     display: block;
     color: white;
 }
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 34px;
+    font-weight: bold;
+    color: #000;
+    border-radius: 50%;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.prev-btn:active, .next-btn:active {
+    background-color: rgba(200, 200, 200, 1); /* Выберите нужный вам цвет */
+}
+
 
 /* ДОВЕРЬТЕ РАБОТУ С ПЛОЩАДКАМИ ПРОФЕССИОНАЛАМ */
 

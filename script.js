@@ -1,3 +1,5 @@
+//ФОРМА ЗАЯВКИ ДЛЯ БЕСПЛАТНОГО АУДИТА
+
 document.addEventListener('DOMContentLoaded', function () {
     let currentQuestion = 1;
     const totalQuestions = 6; // Теперь вопросов 6
@@ -87,4 +89,87 @@ document.addEventListener('DOMContentLoaded', function () {
     // Инициализация формы
     updateForm();
 });
+
+// ОТЗЫВЫ
+
+document.addEventListener('DOMContentLoaded', function() {
+    const reviews = document.querySelectorAll('.reviews-block');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentIndex = 0;
+
+    // Функция для обновления отображаемого отзыва
+    function updateReview(index) {
+        reviews.forEach((review, i) => {
+            review.classList.toggle('active', i === index);
+        });
+    }
+
+    // Обработчик для кнопки "Предыдущий"
+    prevBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+        updateReview(currentIndex);
+    });
+
+    // Обработчик для кнопки "Следующий"
+    nextBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % reviews.length;
+        updateReview(currentIndex);
+    });
+});
+
+// ПРИМЕРЫ РАБОТ
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Слайдер статистики
+    (function() {
+        const slidesContainer = document.querySelector('.statistics-slides');
+        const slides = document.querySelectorAll('.statistics-slide');
+        const prevBtn = document.querySelector('.statistics-prev-btn');
+        const nextBtn = document.querySelector('.statistics-next-btn');
+        let currentIndex = 0;
+
+        function updateSlide(index) {
+            slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        updateSlide(currentIndex);
+
+        prevBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlide(currentIndex);
+        });
+
+        nextBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlide(currentIndex);
+        });
+    })();
+
+    // Слайдер инфографики
+    (function() {
+        const slidesContainer = document.querySelector('.infographic-slides');
+        const slides = document.querySelectorAll('.infographic-slide');
+        const prevBtn = document.querySelector('.infographic-prev-btn');
+        const nextBtn = document.querySelector('.infographic-next-btn');
+        let currentIndex = 0;
+
+        function updateSlide(index) {
+            slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        updateSlide(currentIndex);
+
+        prevBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlide(currentIndex);
+        });
+
+        nextBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlide(currentIndex);
+        });
+    })();
+});
+
 
