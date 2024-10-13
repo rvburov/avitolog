@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     let currentQuestion = 1;
-    const totalQuestions = 6; // Теперь вопросов 6
+    const totalQuestions = 6;
 
     const questions = [
         { label: "Вид бизнеса:", placeholder: "Введите вид бизнеса" },
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const formLabel = document.getElementById('form-label');
     const inputField = document.getElementById('input-field');
     const nextButton = document.getElementById('next-btn');
+    const prevButton = document.getElementById('prev-btn'); // Кнопка "Назад"
     const auditForm = document.getElementById('audit-form');
     const successMessage = document.getElementById('success-message');
     const errorMessage = document.getElementById('error-message');
@@ -25,16 +26,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Элементы для примера отчета XLS
     const xlsLink = document.getElementById('xls-link');
     const xlsImage = document.getElementById('xls-image');
-    const xlsExampleContainer = document.getElementById('xls-example-container'); // Контейнер для отображения XLS примера
+    const xlsExampleContainer = document.getElementById('xls-example-container');
 
     // Показать/скрыть изображение при нажатии на ссылку
     xlsLink.addEventListener('click', function (e) {
         e.preventDefault();
-        if (xlsImage.style.display === 'none') {
-            xlsImage.style.display = 'block';
-        } else {
-            xlsImage.style.display = 'none';
-        }
+        xlsImage.style.display = xlsImage.style.display === 'none' ? 'block' : 'none';
     });
 
     function updateForm() {
@@ -42,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
         progressElement.style.width = `${progressPercent}%`;
         questionCounter.textContent = `Вопрос ${currentQuestion} / ${totalQuestions}`;
 
-        // Обновляем поле формы
         formLabel.textContent = questions[currentQuestion - 1].label;
         inputField.placeholder = questions[currentQuestion - 1].placeholder;
 
@@ -53,42 +49,58 @@ document.addEventListener('DOMContentLoaded', function () {
             inputField.type = "text";
         }
 
-        // Показываем/скрываем блок примера XLS только на вопросе №5
         if (currentQuestion === 5) {
             xlsExampleContainer.style.display = 'block';
         } else {
             xlsExampleContainer.style.display = 'none';
         }
 
-        // Очищаем поле ввода после каждого вопроса
         inputField.value = '';
 
-        // Скрываем сообщение об ошибке при переходе к новому вопросу
         errorMessage.style.display = 'none';
+
+        // Показываем кнопку "Назад", начиная с вопроса 2
+        if (currentQuestion > 1) {
+            prevButton.style.display = 'block';
+        } else {
+            prevButton.style.display = 'none';
+        }
     }
 
     nextButton.addEventListener('click', function () {
-        // Проверяем, что поле заполнено, если оно не является файлом или необязательным полем
         if (questions[currentQuestion - 1].type !== "file" && inputField.value.trim() === '') {
             errorMessage.textContent = 'Пожалуйста, заполните поле перед переходом к следующему вопросу.';
             errorMessage.style.display = 'block';
             return;
         }
 
-        // Если это последний вопрос, показать сообщение об успешной отправке
         if (currentQuestion === totalQuestions) {
-            auditForm.style.display = 'none'; // Скрыть форму
-            questionCounter.style.display = 'none'; // Скрыть счетчик вопросов
-            successMessage.style.display = 'block'; // Показать сообщение "Заявка отправлена"
+            auditForm.style.display = 'none';
+            questionCounter.style.display = 'none';
+            successMessage.style.display = 'block';
         } else {
             currentQuestion++;
             updateForm();
         }
     });
 
-    // Инициализация формы
+    prevButton.addEventListener('click', function () {
+        if (currentQuestion > 1) {
+            currentQuestion--;
+            updateForm();
+        }
+    });
+
+    document.getElementById('auditForm').addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            nextButton.click();
+        }
+    });
+
     updateForm();
 });
+
 
 // ОТЗЫВЫ
 

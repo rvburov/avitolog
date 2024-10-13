@@ -1,6 +1,6 @@
 @font-face{
     font-family: 'FuturaPT';
-    src: url('./fonts/FuturaPT-Light.woff2') format ('wolf2');
+    src: url('./fonts/FuturaPT-Light.woff2') format ('woff2');
     font-display: swap;
 }
 
@@ -211,6 +211,33 @@ body {
     margin-right: auto; /* Центрируем изображение */
 }
 
+/* Контейнер для кнопок "Назад" и "Далее" */
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Кнопка "Назад" */
+button#prev-btn {
+    background-color: rgb(211, 211, 211);
+    color: black;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    width: 150px; /* Фиксированная ширина */
+    margin-right: 10px; /* Отступ между кнопками */
+}
+
+button#prev-btn:hover {
+    background-color: rgb(169, 169, 169);
+}
+
 /* Кнопка "Далее" */
 button#next-btn {
     background-color: rgb(67, 179, 249);
@@ -219,17 +246,19 @@ button#next-btn {
     border: none;
     border-radius: 20px;
     font-size: 20px;
+    font-weight: 600;
     cursor: pointer;
-    display: block;
-    margin: 0 auto;
     text-transform: uppercase;
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    width: 150px; /* Фиксированная ширина */
+    margin-left: 10px; /* Отступ между кнопками */
 }
 
 button#next-btn:hover {
-    background-color:rgb(0, 126, 205);
+    background-color: rgb(0, 126, 205);
 }
+
 
 /* Сообщение после отправки */
 #success-message h2 {
@@ -247,7 +276,7 @@ button#next-btn:hover {
 /* О НАС */
 
 .about-group {
-    background-color: rgb(148, 212, 237);
+    background: linear-gradient(to top, rgb(13, 133, 180), rgba(148, 212, 237));
 }
 
 .about-group div {
@@ -265,6 +294,7 @@ button#next-btn:hover {
     flex: 1;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 #about-1 h1 {
@@ -348,8 +378,13 @@ button#next-btn:hover {
 /* ЭТАПЫ РАБОТЫ */
 
 .steps-of-work {
-    background-color: rgb(148, 212, 237);
+    background: linear-gradient(to top, rgb(6, 95, 130), rgb(13, 133, 180));
     padding: 20px;
+}
+
+.steps-of-work > div{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+
 }
 
 .steps-of-work > div{
@@ -361,6 +396,7 @@ button#next-btn:hover {
 
 #steps-of-work-group{
     padding: 50px 30px 0;
+
 }
 
 #steps-of-work-group h1 {
@@ -474,7 +510,7 @@ button#next-btn:hover {
 /* ПРИМЕРЫ РАБОТ */
 
 #work-examples {
-    background-color: rgb(148, 212, 237);
+    background: rgba(6, 95, 130);
 }
 
 .work-examples-container {
@@ -482,6 +518,7 @@ button#next-btn:hover {
     margin: 0 auto;
     background-color: #f0f8ff;
     border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 .work-examples-container > div {
@@ -547,13 +584,13 @@ button#next-btn:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(74, 144, 226, 0.7);
     border: none;
     padding: 15px 20px;
     cursor: pointer;
     font-size: 34px;
     font-weight: bold;
-    color: #000;
+    color: #ffffff;
     border-radius: 50%;
 }
 
@@ -566,11 +603,11 @@ button#next-btn:hover {
 }
 
 .statistics-prev-btn:hover, .statistics-next-btn:hover {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(74, 144, 226);
 }
 
 .statistics-prev-btn:active, .statistics-next-btn:active {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(74, 144, 226, 0.7);
 }
 
 /* Инфографика */
@@ -611,13 +648,13 @@ button#next-btn:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(74, 144, 226, 0.7);
     border: none;
     padding: 15px 20px;
     cursor: pointer;
     font-size: 34px;
     font-weight: bold;
-    color: #000;
+    color: #ffffff;
     border-radius: 50%;
 }
 
@@ -630,18 +667,18 @@ button#next-btn:hover {
 }
 
 .infographic-prev-btn:hover, .infographic-next-btn:hover {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(74, 144, 226, 1);
 }
 
 .infographic-prev-btn:active, .infographic-next-btn:active {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(74, 144, 226, 0.7);
 }
 
 
 /* Тарифы */
 
 .tariff-group {
-    background-color: rgb(148, 212, 237);
+    background: linear-gradient(to top, rgb(4, 68, 93), rgba(6, 95, 130));
     padding: 20px;
 }
 
@@ -653,6 +690,7 @@ button#next-btn:hover {
     gap: 20px;
     background-color: #f0f8ff;
     border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 .tariff-menu h1 {
@@ -735,7 +773,7 @@ button#next-btn:hover {
 /* ПОЧЕМУ НАМ ДОВЕРЯЮТ */
 
 .trust-certification{
-    background-color: rgb(148, 212, 237);
+    background: rgba(4, 68, 93);
 }
 
 .trust-certification > div{
@@ -847,7 +885,7 @@ button#next-btn:hover {
 
 /* Отзывы */
 .reviews-group {
-    background-color: rgb(148, 212, 237);
+    background: rgba(4, 68, 93);
     padding: 20px 0;
 }
 
@@ -891,10 +929,11 @@ button#next-btn:hover {
 }
 
 .reviews-logo {
-    height: 100px;
+    width: 150px; /* Фиксируем ширину */
+    height: 150px; /* Фиксируем высоту */
     margin: 30px;
-    border-radius: 50%;
-    border: 2px solid white;
+    object-fit: cover; /* Изображение будет обрезано по размерам контейнера, сохраняя пропорции */
+    border-radius: 50%; /* Если нужно сделать круглыми изображения */
 }
 
 .reviews-block p {
@@ -948,7 +987,7 @@ button#next-btn:hover {
 /* ДОВЕРЬТЕ РАБОТУ С ПЛОЩАДКАМИ ПРОФЕССИОНАЛАМ */
 
 #who-is-avitolog {
-    background-color: rgb(148, 212, 237);
+    background: linear-gradient(to top, rgb(3, 49, 67), rgba(4, 68, 93));
     display: flex;
     justify-content: space-between;
 }
@@ -1074,7 +1113,11 @@ button#next-btn:hover {
 /* КОНТАКТЫ */
 
 .contacts-group {
-    background-color: rgb(148, 212, 237);
+    background-color: rgb(3, 49, 67); /* Фон устанавливается через background-color */
+    background-image: linear-gradient(to bottom, rgba(3, 49, 67, 0.7), rgba(3, 49, 67, 0.8)), url('image/pngwing.png'); /* Указываем только изображение */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 20px;
 }
 #contacts {
